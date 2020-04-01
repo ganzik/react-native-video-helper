@@ -41,8 +41,8 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(compress:(NSString *)source options:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject){
     
     NSDate *methodStart = [NSDate date];
-    
-    NSURL *url = [[NSURL alloc] initWithString:source];
+//     https://stackoverflow.com/questions/40763790/nsarraym-objectatindex-index-0-beyond-bounds-for-empty-array-while-using
+    NSURL *url = [NSURL fileURLWithPath:source];
     
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     
